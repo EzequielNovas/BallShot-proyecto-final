@@ -15,4 +15,8 @@ public class Menu : MonoBehaviour
         Debug.Log("salir...");
         Application.Quit();
     }
+    public void SeleccionarNivel(int NumeroNivel)
+    {
+        SceneManager.LoadScene(NumeroNivel); 
+    }
 }

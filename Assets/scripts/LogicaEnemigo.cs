@@ -6,7 +6,6 @@ public class LogicaEnemigo : MonoBehaviour
 {
     public GameObject efecto;
     public LogicaControlador logicaControlador;
-
     void Start()
     {
 

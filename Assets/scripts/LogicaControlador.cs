@@ -31,6 +31,6 @@ public class LogicaControlador : MonoBehaviour
 
     public void ReiniciarJuego()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Nivel1");
     }
 }
