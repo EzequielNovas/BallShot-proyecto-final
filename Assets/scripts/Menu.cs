@@ -7,7 +7,8 @@ public class Menu : MonoBehaviour
 {
     public void Jugar()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1.0f;
     }
 
     public void Salir()
@@ -17,6 +18,7 @@ public class Menu : MonoBehaviour
     }
     public void SeleccionarNivel(int NumeroNivel)
     {
-        SceneManager.LoadScene(NumeroNivel); 
+        SceneManager.LoadScene(NumeroNivel);
+        Time.timeScale = 1f;
     }
 }

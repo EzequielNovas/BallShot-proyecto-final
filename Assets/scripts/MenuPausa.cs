@@ -2,41 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class MenuPausa : MonoBehaviour
+ public class MenuPausa : MonoBehaviour
 {
-    public GameObject menuDePausa;
-    private bool menuOn;
+    [SerializeField] private GameObject botonPausa;
+    [SerializeField] private GameObject menuPausa;
+    public bool JuegoPausado = false;
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            menuOn = !menuOn;
+            if(JuegoPausado)
+            {
+                Reanudar();
+            }
+            else
+            {
+                Pausa();
+            }
         }
 
-        if(menuOn == true)
-        {
-            menuDePausa.SetActive(true);
-            Time.timeScale = 0f;
-        }
-        else
-        {
-            menuDePausa.SetActive(false);
-            Time.timeScale = 1f;
-        }
     }
-
+    public void Pausa()
+    {
+        JuegoPausado = true;
+        Time.timeScale = 0f;
+        botonPausa.SetActive(false);
+        menuPausa.SetActive(true);
+    }
     public void Reanudar()
     {
-        menuDePausa.SetActive(false);
-        menuOn = false;
+        JuegoPausado = false;
+        Time.timeScale = 1f;
+        botonPausa.SetActive(true);
+        menuPausa.SetActive(false);
     }
-
-    public void VolverAlInicio()
+    public void VolverMenu()
     {
         SceneManager.LoadScene(0);
-     
     }
-    
-
+    public void Reiniciar()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
 }
+
